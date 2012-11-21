@@ -1,8 +1,10 @@
+using System.Web;
+using CrystalQuartz.Core.SchedulerProviders;
+using Quartz;
+using Quartz.Impl.Matchers;
+
 namespace CrystalQuartz.Web.Processors.Operations
 {
-    using System.Web;
-    using Core;
-    using Core.SchedulerProviders;
 
     public class ResumeGroupFiller : OperationFiller
     {
@@ -14,7 +16,7 @@ namespace CrystalQuartz.Web.Processors.Operations
         protected override void DoAction(HttpResponseBase response, HttpContextBase context)
         {
             var jobGroup = context.Request.Params["group"];
-            _schedulerProvider.Scheduler.ResumeJobGroup(jobGroup);
+            _schedulerProvider.Scheduler.ResumeJobs(GroupMatcher<JobKey>.GroupEquals(jobGroup));
         }
     }
 }

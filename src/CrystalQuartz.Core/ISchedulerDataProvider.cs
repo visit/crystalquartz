@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Quartz;
 
 namespace CrystalQuartz.Core
 {
@@ -12,7 +13,7 @@ namespace CrystalQuartz.Core
     {
         SchedulerData Data { get; }
 
-        JobDetailsData GetJobDetailsData(string name, string group);
+        JobDetailsData GetJobDetailsData(JobKey jobKey);
 
         IEnumerable<ActivityEvent> GetJobEvents(string name, DateTime minDateUtc, DateTime maxDateUtc);
     }

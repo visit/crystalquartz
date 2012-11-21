@@ -1,3 +1,5 @@
+using Quartz;
+
 namespace CrystalQuartz.Web.Processors.Operations
 {
     using System.Web;
@@ -13,9 +15,9 @@ namespace CrystalQuartz.Web.Processors.Operations
 
         protected override void DoAction(HttpResponseBase response, HttpContextBase context)
         {
-            var trigger = context.Request.Params["trigger"];
+            var triggerName = context.Request.Params["trigger"];
             var jobGroup = context.Request.Params["group"];
-            _schedulerProvider.Scheduler.ResumeTrigger(trigger, jobGroup);
+            _schedulerProvider.Scheduler.ResumeTrigger(new TriggerKey(triggerName, jobGroup));
         }
     }
 }

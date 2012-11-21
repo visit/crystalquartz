@@ -1,5 +1,6 @@
 using System.Web;
 using CrystalQuartz.Core.SchedulerProviders;
+using Quartz;
 
 namespace CrystalQuartz.Web.Processors.Operations
 {
@@ -14,7 +15,7 @@ namespace CrystalQuartz.Web.Processors.Operations
             var jobGroup = context.Request.Params["group"];
             var jobName = context.Request.Params["job"];
 
-            _schedulerProvider.Scheduler.TriggerJob(jobName, jobGroup);
+            _schedulerProvider.Scheduler.TriggerJob(new JobKey(jobName, jobGroup));
         }
     }
 }

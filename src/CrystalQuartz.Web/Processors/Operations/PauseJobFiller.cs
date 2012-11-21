@@ -1,3 +1,5 @@
+using Quartz;
+
 namespace CrystalQuartz.Web.Processors.Operations
 {
     using System.Web;
@@ -14,7 +16,7 @@ namespace CrystalQuartz.Web.Processors.Operations
         {
             var jobName = context.Request.Params["job"];
             var jobGroup = context.Request.Params["group"];
-            _schedulerProvider.Scheduler.PauseJob(jobName, jobGroup);
+            _schedulerProvider.Scheduler.PauseJob(new JobKey(jobName, jobGroup));
         }
     }
 }

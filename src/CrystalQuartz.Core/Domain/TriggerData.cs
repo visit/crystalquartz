@@ -8,12 +8,12 @@ namespace CrystalQuartz.Core.Domain
         {
         }
 
-        public DateTime StartDate { get; set; }
+        public DateTimeOffset StartDate { get; set; }
 
-        public DateTime? EndDate { get; set; }
+        public DateTimeOffset? EndDate { get; set; }
 
-        public DateTime? NextFireDate { get; set; }
+        public DateTimeOffset? NextFireDate { get; set; }
 
-        public DateTime? PreviousFireDate { get; set; }
+        public DateTimeOffset? PreviousFireDate { get; set; }
     }
 }

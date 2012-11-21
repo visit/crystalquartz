@@ -1,13 +1,16 @@
+using Quartz;
+using Quartz.Util;
+
 namespace CrystalQuartz.Core.Domain
 {
     using System.Collections.Generic;
 
     public class JobData : ActivityNode<TriggerData>
     {
-        public JobData(string name, string group, IList<TriggerData> triggers): base(name)
+        public JobData(Key<JobKey> jobKey, IList<TriggerData> triggers): base(jobKey.Name)
         {
             Triggers = triggers;
-            GroupName = group;
+            GroupName = jobKey.Group;
         }
 
         public IList<TriggerData> Triggers { get; private set; }

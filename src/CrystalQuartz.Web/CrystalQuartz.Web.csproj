@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CrystalQuartz.Web</RootNamespace>
     <AssemblyName>CrystalQuartz.Web</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -31,6 +31,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,9 +57,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\libs\NVelocity\NVelocity.dll</HintPath>
     </Reference>
-    <Reference Include="Quartz, Version=1.0.2.2, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+    <Reference Include="Quartz, Version=1.0.3.3, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\libs\Quartz.dll</HintPath>
+      <HintPath>..\..\..\bin\libs\Quartz.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -113,12 +114,6 @@
     <Compile Include="Processors\Operations\StopSchedulerFiller.cs" />
     <Compile Include="Processors\Operations\TriggerJobOperationFiller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CrystalQuartz.Core\CrystalQuartz.Core.csproj">
-      <Project>{9382E234-40E3-40D1-9A6F-5EF63CF09C90}</Project>
-      <Name>CrystalQuartz.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Content\main.css" />
@@ -190,6 +185,12 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CrystalQuartz.Core\CrystalQuartz.Core.csproj">
+      <Project>{9382E234-40E3-40D1-9A6F-5EF63CF09C90}</Project>
+      <Name>CrystalQuartz.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

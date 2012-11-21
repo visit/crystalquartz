@@ -1,9 +1,10 @@
+using CrystalQuartz.Core;
+using CrystalQuartz.Web.FrontController;
+using CrystalQuartz.Web.FrontController.ViewRendering;
+using Quartz;
+
 namespace CrystalQuartz.Web.Processors
 {
-    using Core;
-    using FrontController;
-    using FrontController.ViewRendering;
-
     public class JobFiller : MasterFiller
     {
         public JobFiller(IViewEngine viewEngine, ISchedulerDataProvider schedulerDataProvider)
@@ -16,7 +17,7 @@ namespace CrystalQuartz.Web.Processors
             var jobName = Request.Params["job"];
             var jobGroup = Request.Params["group"];
             viewData.Data["mainContent"] = "job";
-            viewData.Data["jobDetails"] = SchedulerDataProvider.GetJobDetailsData(jobName, jobGroup);
+            viewData.Data["jobDetails"] = SchedulerDataProvider.GetJobDetailsData(new JobKey(jobName, jobGroup));
         }
     }
 }

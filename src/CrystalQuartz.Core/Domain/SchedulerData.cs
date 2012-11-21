@@ -47,6 +47,6 @@ namespace CrystalQuartz.Core.Domain
 
         public Type SchedulerType { get; set; }
 
-        public DateTime? RunningSince { get; set; }
+        public DateTimeOffset? RunningSince { get; set; }
     }
 }
